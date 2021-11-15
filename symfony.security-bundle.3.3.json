@@ -1,0 +1,15 @@
+{
+    "manifests": {
+        "symfony/security-bundle": {
+            "manifest": {
+                "bundles": {
+                    "Symfony\\Bundle\\SecurityBundle\\SecurityBundle": [
+                        "all"
+                    ]
+                }
+            },
+            "files": [],
+            "ref": "1aa13063313c145422e12d5b644ad422fdf80085"
+        }
+    }
+}

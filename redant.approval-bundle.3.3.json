@@ -1,0 +1,13 @@
+{
+    "manifests": {
+        "redant/approval-bundle": {
+            "manifest": {
+                "env": {
+                    "DIVISIONS": ""
+                }
+            },
+            "files": [],
+            "ref": "307ad765810f3bf2c120d09897bde02fb395211b"
+        }
+    }
+}

@@ -1,0 +1,98 @@
+{
+    "manifests": {
+        "redant/multi-tenancy-bundle": {
+            "manifest": {
+                "bundles": {
+                    "RedAnt\\MultiTenancyBundle\\RedAntMultiTenancyBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                },
+                "gitignore": [
+                    "/config/packages/tenants.yaml"
+                ],
+                "post-install-output": [
+                    "<bg=blue;fg=white>              </>",
+                    "<bg=blue;fg=white> What's next? </>",
+                    "<bg=blue;fg=white>              </>",
+                    "",
+                    "  * <fg=blue>Configure</> your multi-tenancy environment:",
+                    "    1. Create one or more tenants using <comment>bin/console mt:create-tenant</comment>;",
+                    "    2. See schema changes for all tenants using <comment>bin/console mt -- d:s:u --dump-sql</comment>.",
+                    "",
+                    "  * <fg=blue>Read</> the documentation at <comment>vendor/redant/multi-tenancy-bundle/README.md</>"
+                ]
+            },
+            "files": {
+                "config/packages/redant_multitenancy.yaml": {
+                    "contents": [
+                        "redant_multitenancy:",
+                        "    # Match tenant alias to the request host name",
+                        "    # E.g., https://<TENANT>/controller/action",
+                        "    match_host: true",
+                        "",
+                        "    # Match tenant alias to the first part of the request path",
+                        "    # E.g., https://test.com/<TENANT>/controller/action",
+                        "    match_path: false",
+                        "",
+                        "    # Retrieve tenant from the session",
+                        "    use_session: false",
+                        "",
+                        "# Set the default user class for the security bundle",
+                        "redant_security:",
+                        "    user_class: RedAnt\\MultiTenancyBundle\\Entity\\User",
+                        "",
+                        "# Add this role to the list of roles available in the application",
+                        "# This role has the ability to see all the users and create additional tenants",
+                        "security:",
+                        "    # SecurityBundle User object authentication",
+                        "    providers:",
+                        "        redant.mt.user:",
+                        "            entity:",
+                        "                class: RedAnt\\MultiTenancyBundle\\Entity\\User",
+                        "    encoders:",
+                        "        RedAnt\\MultiTenancyBundle\\Entity\\User:",
+                        "            algorithm: bcrypt",
+                        "            cost: 13",
+                        "    role_hierarchy:",
+                        "        ROLE_GLOBAL_ADMINISTRATOR: ROLE_USER",
+                        "",
+                        "doctrine:",
+                        "    # Set the Doctrine shard selector",
+                        "    dbal:",
+                        "        shard_choser_service: RedAnt\\MultiTenancyBundle\\Component\\ShardChoser",
+                        "    ",
+                        "    # Ensure the security bundle is not auto-mapped",
+                        "    orm:",
+                        "        mappings:",
+                        "            RedAntSecurityBundle:",
+                        "                is_bundle: true",
+                        "                mapping: false",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/packages/tenants.yaml": {
+                    "contents": [
+                        "# This file is auto-generated from the database. Do not edit manually.",
+                        "",
+                        "doctrine:",
+                        "    dbal:",
+                        "        shards:",
+                        "            localhost:",
+                        "                id: 1",
+                        "                dbname: tenant_0000001",
+                        "                host: localhost",
+                        "                port: 3306",
+                        "                user: root",
+                        "                password: ~"
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "b7655b3ec6a9b216da137a1ae67eb4b1b667be70"
+        }
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "manifests": {
+        "redant/apps-bundle": {
+            "manifest": {
+                "bundles": {
+                    "RedAnt\\AppsBundle\\AppsBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                }
+            },
+            "files": {
+                "config/packages/apps.yaml": {
+                    "contents": [
+                        "# RedAnt Apps platform",
+                        "#",
+                        "# This file contains your app and menu configuration.",
+                        "#",
+                        "# Example menu structure:",
+                        "#",
+                        "# apps:",
+                        "#     dashboard:",
+                        "#         icon: 'block layout'",
+                        "#         menu:",
+                        "#             dashboard: App\\Dashboard\\Controller\\DashboardController::dashboard",
+                        "#     location:",
+                        "#         icon: 'map marker alternate'",
+                        "#         menu:",
+                        "#             dashboard: App\\Location\\Controller\\DashboardController::index",
+                        "#             graphs:",
+                        "#                 page_one: App\\Location\\Controller\\GraphController::one",
+                        "#                 divider: ---",
+                        "#                 page_two: App\\Location\\Controller\\GraphController::two",
+                        "#     help:",
+                        "#         icon: 'help'",
+                        "#         menu: [] # This app has an empty menu",
+                        "#         route: App\\Help\\Controller\\HelpController::index"
+                    ],
+                    "executable": false
+                },
+                "config/routes/apps.yaml": {
+                    "contents": [
+                        "redant.apps:",
+                        "    resource: \"@AppsBundle/Controller\"",
+                        "    type: annotation",
+                        "    prefix: /apps"
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "d4f9c6e64667d03fb6b8cfb6eb31ae2a4245b7db"
+        }
+    }
+}

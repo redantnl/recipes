@@ -1,0 +1,56 @@
+{
+    "aliases": {
+        "apps": "redant/apps-bundle",
+        "apps-bundle": "redant/apps-bundle",
+        "appsbundle": "redant/apps-bundle",
+        "eol": "redant/exact-online-bundle",
+        "exact-online": "redant/exact-online-bundle",
+        "exact-online-bundle": "redant/exact-online-bundle",
+        "exactonline": "redant/exact-online-bundle",
+        "exactonlinebundle": "redant/exact-online-bundle",
+        "mt": "redant/multi-tenancy-bundle",
+        "multi-tenancy": "redant/multi-tenancy-bundle",
+        "multi-tenancy-bundle": "redant/multi-tenancy-bundle",
+        "multitenancy": "redant/multi-tenancy-bundle",
+        "multitenancybundle": "redant/multi-tenancy-bundle",
+        "redant-apps": "redant/apps-bundle",
+        "redant-security": "redant/security-bundle",
+        "redantapps": "redant/apps-bundle",
+        "redantsecurity": "redant/security-bundle",
+        "security": "redant/security-bundle",
+        "security-bundle": "symfony/security-bundle",
+        "securitybundle": "symfony/security-bundle"
+    },
+    "recipes": {
+        "redant/approval-bundle": [
+            "3.3",
+            "4.1"
+        ],
+        "redant/apps-bundle": [
+            "2.0"
+        ],
+        "redant/aws-bundle": [
+            "1.0"
+        ],
+        "redant/exact-online-bundle": [
+            "3.0"
+        ],
+        "redant/multi-tenancy-bundle": [
+            "1.0"
+        ],
+        "redant/security-bundle": [
+            "2.0"
+        ],
+        "symfony/security-bundle": [
+            "3.3"
+        ]
+    },
+    "versions": [],
+    "branch": "main",
+    "is_contrib": true,
+    "_links": {
+        "repository": "github.com/redant/recipes",
+        "origin_template": "{package}:{version}@github.com/redant/recipes:main",
+        "recipe_template": "https://api.github.com/repos/redant/recipes/contents/{package_dotted}.{version}.json?ref=main"
+    }
+}

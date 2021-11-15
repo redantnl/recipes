@@ -1,0 +1,90 @@
+{
+    "manifests": {
+        "redant/security-bundle": {
+            "manifest": {
+                "bundles": {
+                    "RedAnt\\SecurityBundle\\RedAntSecurityBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                }
+            },
+            "files": {
+                "config/packages/security.yaml": {
+                    "contents": [
+                        "security:",
+                        "    # SecurityBundle User object authentication",
+                        "    providers:",
+                        "        redant.security.user:",
+                        "            entity:",
+                        "                class: RedAnt\\SecurityBundle\\Entity\\User",
+                        "",
+                        "    # Default encoder for SecurityBundle User objects",
+                        "    encoders:",
+                        "        RedAnt\\SecurityBundle\\Entity\\User:",
+                        "            algorithm: bcrypt",
+                        "            cost: 13",
+                        "",
+                        "    firewalls:",
+                        "        # Disables authentication for assets and the profiler",
+                        "        dev:",
+                        "            pattern: ^/(_(profiler|wdt)|css|images|js)/",
+                        "            security: false",
+                        "",
+                        "        main:",
+                        "            anonymous: true",
+                        "",
+                        "            # Register SecurityBundle logout path",
+                        "            logout:",
+                        "                path:   /logout",
+                        "                target: redant.security.login",
+                        "",
+                        "            # Register SecurityBundle authenticator service",
+                        "            guard:",
+                        "                authenticators:",
+                        "                    - RedAnt\\SecurityBundle\\Security\\UserAuthenticator",
+                        "",
+                        "            # SecurityBundle Remember me settings",
+                        "            remember_me:",
+                        "                secret:   '%kernel.secret%'",
+                        "                lifetime: 604800     # 1 week in seconds",
+                        "",
+                        "    # Define your role hierarchy here",
+                        "    role_hierarchy:",
+                        "        ROLE_ADMIN: ROLE_USER"
+                    ],
+                    "executable": false
+                },
+                "config/packages/redant_security.yaml": {
+                    "contents": [
+                        "redant_security:",
+                        "    # Default login template",
+                        "    login_template: '@RedAntSecurity/login.html.twig' ",
+                        "",
+                        "    # Redirect to this route after login",
+                        "    redirection_route: 'location.dashboard'",
+                        "",
+                        "    # Email address password reset messages are sent from",
+                        "    from_email: 'info@redant.nl'",
+                        "",
+                        "    # This enables registration for the application. Default: false",
+                        "    allow_registration: false"
+                    ],
+                    "executable": false
+                },
+                "config/routes/redant_security.yaml": {
+                    "contents": [
+                        "redant_security:",
+                        "    resource: \"@RedAntSecurityBundle/Controller\"",
+                        "    type:     annotation",
+                        "    prefix:   /"
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "888de6bfbc42ca58117bfdb3095df459c4ef5fe2"
+        }
+    }
+}

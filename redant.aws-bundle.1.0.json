@@ -1,0 +1,57 @@
+{
+    "manifests": {
+        "redant/aws-bundle": {
+            "manifest": {
+                "bundles": {
+                    "RedAnt\\AWSBundle\\RedAntAWSBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                }
+            },
+            "files": {
+                "config/packages/messenger.yaml": {
+                    "contents": [
+                        "framework:",
+                        "    messenger:",
+                        "        # Uncomment this (and the failed transport below) to send failed messages to this transport for later handling.",
+                        "        failure_transport: failed",
+                        "",
+                        "        transports:",
+                        "            # https://symfony.com/doc/current/messenger.html#transport-configuration",
+                        "             async: '%env(MESSENGER_TRANSPORT_DSN)%'",
+                        "             failed: 'doctrine://default?queue_name=failed'",
+                        "            # sync: 'sync://'",
+                        "",
+                        "        routing:",
+                        "            # Route your messages to the transports",
+                        "            RedAnt\\AWSBundle\\Message\\CreateInBucketMessage: async",
+                        "            RedAnt\\AWSBundle\\Message\\RemoveFromBucketMessage: async",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/packages/redant_aws.yaml": {
+                    "contents": [
+                        "redant_aws:",
+                        "    # This delays the removal of the file for a period of time. Value is in millisecconds",
+                        "    removal_delay:        0 # Example: 10000"
+                    ],
+                    "executable": false
+                },
+                "config/routes/redant_aws.yaml": {
+                    "contents": [
+                        "redant_aws:",
+                        "    resource: \"@RedAntAWSBundle/Controller\"",
+                        "    type:     annotation",
+                        "    prefix:   /"
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "4f8855986fe66dbca24ac018696052d3364ff8f1"
+        }
+    }
+}
