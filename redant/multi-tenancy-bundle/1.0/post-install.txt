@@ -1,0 +1,9 @@
+<bg=blue;fg=white>              </>
+<bg=blue;fg=white> What's next? </>
+<bg=blue;fg=white>              </>
+
+  * <fg=blue>Configure</> your multi-tenancy environment:
+    1. Create one or more tenants using <comment>bin/console mt:create-tenant</comment>;
+    2. See schema changes for all tenants using <comment>bin/console mt -- d:s:u --dump-sql</comment>.
+
+  * <fg=blue>Read</> the documentation at <comment>vendor/redant/multi-tenancy-bundle/README.md</>

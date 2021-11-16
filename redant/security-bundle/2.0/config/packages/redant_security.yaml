@@ -1,0 +1,12 @@
+redant_security:
+    # Default login template
+    login_template: '@RedAntSecurity/login.html.twig' 
+
+    # Redirect to this route after login
+    redirection_route: 'location.dashboard'
+
+    # Email address password reset messages are sent from
+    from_email: 'info@redant.nl'
+
+    # This enables registration for the application. Default: false
+    allow_registration: false

@@ -1,0 +1,4 @@
+redant_security:
+    resource: "@RedAntSecurityBundle/Controller"
+    type:     annotation
+    prefix:   /

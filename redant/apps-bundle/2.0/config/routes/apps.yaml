@@ -1,0 +1,4 @@
+redant.apps:
+    resource: "@AppsBundle/Controller"
+    type: annotation
+    prefix: /apps

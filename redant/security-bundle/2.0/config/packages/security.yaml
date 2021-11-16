@@ -1,0 +1,40 @@
+security:
+    # SecurityBundle User object authentication
+    providers:
+        redant.security.user:
+            entity:
+                class: RedAnt\SecurityBundle\Entity\User
+
+    # Default encoder for SecurityBundle User objects
+    encoders:
+        RedAnt\SecurityBundle\Entity\User:
+            algorithm: bcrypt
+            cost: 13
+
+    firewalls:
+        # Disables authentication for assets and the profiler
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: true
+
+            # Register SecurityBundle logout path
+            logout:
+                path:   /logout
+                target: redant.security.login
+
+            # Register SecurityBundle authenticator service
+            guard:
+                authenticators:
+                    - RedAnt\SecurityBundle\Security\UserAuthenticator
+
+            # SecurityBundle Remember me settings
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 604800     # 1 week in seconds
+
+    # Define your role hierarchy here
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER

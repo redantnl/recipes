@@ -1,0 +1,3 @@
+redant_aws:
+    # This delays the removal of the file for a period of time. Value is in millisecconds
+    removal_delay:        0 # Example: 10000

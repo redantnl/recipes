@@ -1,0 +1,12 @@
+{
+    "bundles": {
+        "RedAnt\\MultiTenancyBundle\\RedAntMultiTenancyBundle": [ "all" ]
+    },
+    "copy-from-recipe": {
+        "config/": "%CONFIG_DIR%/"
+    },
+    "gitignore": [
+        "/config/packages/tenants.yaml"
+    ],
+    "aliases": [ "mt", "multi-tenancy", "multi-tenancy-bundle" ]
+}

@@ -1,0 +1,9 @@
+{
+    "bundles": {
+        "RedAnt\\AppsBundle\\AppsBundle": ["all"]
+    },
+    "copy-from-recipe": {
+        "config/": "%CONFIG_DIR%/"
+    },
+    "aliases": ["apps", "apps-bundle", "redant-apps"]
+}

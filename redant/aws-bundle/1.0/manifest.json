@@ -1,0 +1,8 @@
+{
+    "bundles": {
+        "RedAnt\\AWSBundle\\RedAntAWSBundle": [ "all" ]
+    },
+    "copy-from-recipe": {
+        "config/": "%CONFIG_DIR%/"
+    }
+}

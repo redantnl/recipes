@@ -1,0 +1,12 @@
+# This file is auto-generated from the database. Do not edit manually.
+
+doctrine:
+    dbal:
+        shards:
+            localhost:
+                id: 1
+                dbname: tenant_0000001
+                host: localhost
+                port: 3306
+                user: root
+                password: ~

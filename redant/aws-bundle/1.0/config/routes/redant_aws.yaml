@@ -1,0 +1,4 @@
+redant_aws:
+    resource: "@RedAntAWSBundle/Controller"
+    type:     annotation
+    prefix:   /

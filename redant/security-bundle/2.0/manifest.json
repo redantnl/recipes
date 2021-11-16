@@ -1,0 +1,9 @@
+{
+    "bundles": {
+        "RedAnt\\SecurityBundle\\RedAntSecurityBundle": ["all"]
+    },
+    "copy-from-recipe": {
+        "config/": "%CONFIG_DIR%/"
+    },
+    "aliases": ["security", "security-bundle", "redant-security"]
+}

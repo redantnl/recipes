@@ -1,0 +1,9 @@
+{
+    "bundles": {
+        "RedAnt\\ExactOnlineBundle\\RedAntExactOnlineBundle": [ "all" ]
+    },
+    "copy-from-recipe": {
+        "config/": "%CONFIG_DIR%/"
+    },
+    "aliases": [ "eol", "exact-online", "exact-online-bundle" ]
+}

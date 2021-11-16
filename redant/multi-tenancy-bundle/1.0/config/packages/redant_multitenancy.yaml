@@ -1,0 +1,42 @@
+redant_multitenancy:
+    # Match tenant alias to the request host name
+    # E.g., https://<TENANT>/controller/action
+    match_host: true
+
+    # Match tenant alias to the first part of the request path
+    # E.g., https://test.com/<TENANT>/controller/action
+    match_path: false
+
+    # Retrieve tenant from the session
+    use_session: false
+
+# Set the default user class for the security bundle
+redant_security:
+    user_class: RedAnt\MultiTenancyBundle\Entity\User
+
+# Add this role to the list of roles available in the application
+# This role has the ability to see all the users and create additional tenants
+security:
+    # SecurityBundle User object authentication
+    providers:
+        redant.mt.user:
+            entity:
+                class: RedAnt\MultiTenancyBundle\Entity\User
+    encoders:
+        RedAnt\MultiTenancyBundle\Entity\User:
+            algorithm: bcrypt
+            cost: 13
+    role_hierarchy:
+        ROLE_GLOBAL_ADMINISTRATOR: ROLE_USER
+
+doctrine:
+    # Set the Doctrine shard selector
+    dbal:
+        shard_choser_service: RedAnt\MultiTenancyBundle\Component\ShardChoser
+    
+    # Ensure the security bundle is not auto-mapped
+    orm:
+        mappings:
+            RedAntSecurityBundle:
+                is_bundle: true
+                mapping: false
