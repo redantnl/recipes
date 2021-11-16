@@ -46,11 +46,11 @@
         ]
     },
     "versions": [],
-    "branch": "main",
+    "branch": "source",
     "is_contrib": true,
     "_links": {
         "repository": "github.com/redant/recipes",
-        "origin_template": "{package}:{version}@github.com/redant/recipes:main",
+        "origin_template": "{package}:{version}@github.com/redant/recipes:source",
         "recipe_template": "https://api.github.com/repos/redant/recipes/contents/{package_dotted}.{version}.json?ref=main"
     }
 }
