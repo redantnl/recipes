@@ -49,8 +49,8 @@
     "branch": "source",
     "is_contrib": true,
     "_links": {
-        "repository": "github.com/redant/recipes",
-        "origin_template": "{package}:{version}@github.com/redant/recipes:source",
-        "recipe_template": "https://api.github.com/repos/redant/recipes/contents/{package_dotted}.{version}.json?ref=main"
+        "repository": "github.com/redantnl/recipes",
+        "origin_template": "{package}:{version}@github.com/redantnl/recipes:source",
+        "recipe_template": "https://api.github.com/repos/redantnl/recipes/contents/{package_dotted}.{version}.json?ref=main"
     }
 }
