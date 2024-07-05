@@ -1,0 +1,95 @@
+{
+    "manifests": {
+        "redant/security-bundle": {
+            "manifest": {
+                "bundles": {
+                    "RedAnt\\SecurityBundle\\RedAntSecurityBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                }
+            },
+            "files": {
+                "config/packages/security.yaml": {
+                    "contents": [
+                        "security:",
+                        "    # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords",
+                        "    password_hashers:",
+                        "       RedAnt\\SecurityBundle\\Entity\\User: 'auto'",
+                        "",
+                        "    # SecurityBundle User object authentication",
+                        "    providers:",
+                        "        redant.security.user:",
+                        "            entity:",
+                        "                class: RedAnt\\SecurityBundle\\Entity\\User",
+                        "                property: email",
+                        "",
+                        "    firewalls:",
+                        "        # Disables authentication for assets and the profiler",
+                        "        dev:",
+                        "            pattern: ^/(_(profiler|wdt)|css|images|js)/",
+                        "            security: false",
+                        "",
+                        "        main:",
+                        "            lazy: true",
+                        "            provider: redant.security.user",
+                        "",
+                        "            form_login:",
+                        "               username_parameter: '_email'",
+                        "               login_path: redant.security.login",
+                        "               check_path: redant.security.login",
+                        "            entry_point: form_login",
+                        "",
+                        "            # Register SecurityBundle logout path",
+                        "            logout:",
+                        "                path:   /logout",
+                        "                target: redant.security.login",
+                        "",
+                        "            # SecurityBundle Remember me settings",
+                        "            remember_me:",
+                        "                secret:   '%kernel.secret%'",
+                        "                lifetime: 604800     # 1 week in seconds",
+                        "",
+                        "    # Define your role hierarchy here",
+                        "    role_hierarchy:",
+                        "        ROLE_ADMIN: ROLE_USER"
+                    ],
+                    "executable": false
+                },
+                "config/packages/redant_security.yaml": {
+                    "contents": [
+                        "redant_security:",
+                        "   # You can create a custom form type and define the FQCN to that form here",
+                        "   # Add user form class ex.  new userType form",
+                        "   user_form_class: RedAnt\\AppsBundle\\Form\\UserType",
+                        "",
+                        "    # Default login template",
+                        "    login_template: '@RedAntSecurity/login.html.twig' ",
+                        "",
+                        "    # Redirect to this route after login",
+                        "    redirection_route: 'location.dashboard'",
+                        "",
+                        "    # Email address password reset messages are sent from",
+                        "    from_email: 'info@redant.nl'",
+                        "",
+                        "    # This enables registration for the application. Default: false",
+                        "    allow_registration: false"
+                    ],
+                    "executable": false
+                },
+                "config/routes/redant_security.yaml": {
+                    "contents": [
+                        "redant_security:",
+                        "    resource: \"@RedAntSecurityBundle/Controller\"",
+                        "    type:     attribute",
+                        "    prefix:   /"
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "888de6bfbc42ca58117bfdb3095df459c4ef5fe2"
+        }
+    }
+}
