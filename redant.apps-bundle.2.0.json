@@ -44,7 +44,7 @@
                     "contents": [
                         "redant.apps:",
                         "    resource: \"@AppsBundle/Controller\"",
-                        "    type: attribute",
+                        "    type: annotation",
                         "    prefix: /apps"
                     ],
                     "executable": false

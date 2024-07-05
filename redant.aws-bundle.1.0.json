@@ -45,7 +45,7 @@
                     "contents": [
                         "redant_aws:",
                         "    resource: \"@RedAntAWSBundle/Controller\"",
-                        "    type:     attribute",
+                        "    type:     annotation",
                         "    prefix:   /"
                     ],
                     "executable": false
