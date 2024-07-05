@@ -27,10 +27,12 @@
             "4.1"
         ],
         "redant/apps-bundle": [
-            "2.0"
+            "2.0",
+            "4.0"
         ],
         "redant/aws-bundle": [
-            "1.0"
+            "1.0",
+            "2.0"
         ],
         "redant/exact-online-bundle": [
             "3.0"
@@ -39,7 +41,8 @@
             "1.0"
         ],
         "redant/security-bundle": [
-            "2.0"
+            "2.0",
+            "4.0"
         ],
         "symfony/security-bundle": [
             "3.3"
